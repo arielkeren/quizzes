@@ -1,0 +1,10 @@
+.container {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}

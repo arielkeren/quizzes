@@ -1,0 +1,36 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 50px;
+  color: #8f600b;
+}
+
+.text {
+  font-size: 45px;
+  margin-bottom: 40px;
+}
+
+.field {
+  font-size: 45px;
+}
+
+.button {
+  color: #8f600b;
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}

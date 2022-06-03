@@ -1,0 +1,25 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: crimson;
+}
+
+.icon {
+  color: #b9062a;
+  font-size: 750px;
+}
+
+.button {
+  border: none;
+  background-color: royalblue;
+  color: white;
+  padding: 20px;
+  font-size: 35px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px black;
+}

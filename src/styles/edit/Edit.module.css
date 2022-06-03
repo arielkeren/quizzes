@@ -1,0 +1,17 @@
+.container {
+  position: absolute;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  font-size: 50px;
+  color: #015101;
+}

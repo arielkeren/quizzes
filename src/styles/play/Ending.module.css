@@ -1,0 +1,47 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions {
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.questionsNumber {
+  color: blue;
+}
+
+.correct {
+  font-weight: bold;
+  color: green;
+  font-size: 45px;
+}
+
+.incorrect {
+  font-weight: bold;
+  color: crimson;
+  font-size: 45px;
+}
+
+.percentage {
+  font-weight: bold;
+  color: blue;
+  font-size: 55px;
+}
+
+.button {
+  margin-top: 30px;
+  text-decoration: none;
+  background-color: #557ffe;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px black;
+}

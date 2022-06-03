@@ -1,0 +1,15 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 50px;
+  padding: 30px;
+}

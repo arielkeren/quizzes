@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 40px;
+}
+
+.link {
+  font-size: 30px;
+  color: blue;
+  font-weight: bold;
+}

@@ -1,0 +1,21 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  animation: spinning 1s infinite ease-out;
+  font-size: 200px;
+  color: royalblue;
+}
+
+@keyframes spinning {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

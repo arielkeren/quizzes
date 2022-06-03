@@ -1,0 +1,28 @@
+.button {
+  height: 100px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.home {
+  background-color: #1d1d1d;
+  color: white;
+}
+
+.play {
+  background-color: #557ffe;
+  color: #0707c4;
+}
+
+.create {
+  background-color: orange;
+  color: #8f600b;
+}
+
+.edit {
+  background-color: green;
+  color: #015101;
+}
