@@ -3,13 +3,13 @@ import styles from "../../styles/edit/EditQuestion.module.css";
 import EditHeader from "./EditHeader";
 import EditTitle from "./EditTitle";
 import EditAnswerTable from "./EditAnswerTable";
-import SaveButton from "./SaveButton";
 
 interface Props {
   quiz: QuizInterface;
   currentQuestion: number;
   addQuestion: () => void;
   changeQuestion: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  deleteQuestion: () => void;
   save: () => void;
   changeTitle: (newTitle: string, id: string) => void;
   changeText: (newText: string, index: number) => void;
@@ -21,6 +21,7 @@ const EditQuestion: React.FC<Props> = ({
   currentQuestion,
   addQuestion,
   changeQuestion,
+  deleteQuestion,
   save,
   changeTitle,
   changeText,
@@ -28,10 +29,13 @@ const EditQuestion: React.FC<Props> = ({
 }) => (
   <div className={styles.container}>
     <EditHeader
+      currentQuestion={currentQuestion}
       name={quiz.name}
       questions={quiz.questions}
       addQuestion={addQuestion}
       changeQuestion={changeQuestion}
+      deleteQuestion={deleteQuestion}
+      save={save}
     />
     <EditTitle
       title={quiz.questions[currentQuestion - 1].title}
@@ -43,7 +47,6 @@ const EditQuestion: React.FC<Props> = ({
       changeText={changeText}
       toggleCorrect={toggleCorrect}
     />
-    <SaveButton save={save} />
   </div>
 );
 

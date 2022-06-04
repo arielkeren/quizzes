@@ -77,7 +77,7 @@ const EditQuiz: React.FC = () => {
 
   const addQuestion = () => {
     if (quiz === undefined) return;
-    const newQuiz = JSON.parse(JSON.stringify(quiz));
+    const newQuiz: QuizInterface = JSON.parse(JSON.stringify(quiz));
     newQuiz.questions.push({
       title: "",
       answers: [
@@ -89,6 +89,7 @@ const EditQuiz: React.FC = () => {
       id: uuidv4(),
     });
     setQuiz(newQuiz);
+    setCurrentQuestion(newQuiz.questions.length);
   };
 
   const changeQuestion = (event: React.ChangeEvent<HTMLSelectElement>) =>
@@ -123,6 +124,19 @@ const EditQuiz: React.FC = () => {
     setQuiz(newQuiz);
   };
 
+  const deleteQuestion = () => {
+    if (window.confirm("Delete question?")) {
+      const newQuiz: QuizInterface = JSON.parse(JSON.stringify(quiz));
+      newQuiz.questions.splice(currentQuestion - 1, 1);
+      setQuiz(newQuiz);
+      setCurrentQuestion((prevCurrentQuestion) =>
+        prevCurrentQuestion === 1
+          ? prevCurrentQuestion
+          : prevCurrentQuestion - 1
+      );
+    }
+  };
+
   return (
     <>
       {quizzes === null ? (
@@ -137,6 +151,7 @@ const EditQuiz: React.FC = () => {
           currentQuestion={currentQuestion}
           addQuestion={addQuestion}
           changeQuestion={changeQuestion}
+          deleteQuestion={deleteQuestion}
           save={save}
           changeTitle={changeTitle}
           changeText={changeText}

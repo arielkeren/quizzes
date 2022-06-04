@@ -5,10 +5,28 @@
   align-items: center;
 }
 
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
 .dropdown {
   font-size: 30px;
   padding: 5px;
-  margin: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.add {
+  border: none;
+  background-color: royalblue;
+  color: white;
+  font-size: 35px;
+  padding: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -20,17 +38,14 @@
   transform: translateX(50%);
 }
 
-.button {
-  border: none;
-  background-color: royalblue;
-  color: white;
+.delete {
   font-size: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 1px 1px 5px black;
+  color: crimson;
+  cursor: pointer;
+}
+
+.save {
+  font-size: 55px;
+  color: #006eff;
   cursor: pointer;
 }
