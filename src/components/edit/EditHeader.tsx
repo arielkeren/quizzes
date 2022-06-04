@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { IoIosArrowBack as BackIcon } from "react-icons/io";
 import { FaPlus as AddIcon } from "react-icons/fa";
 import { RiDeleteBinFill as DeleteIcon } from "react-icons/ri";
 import { MdSave as SaveIcon } from "react-icons/md";
@@ -25,6 +27,9 @@ const EditHeader: React.FC<Props> = ({
 }) => (
   <div className={styles.container}>
     <div className={styles.buttonsContainer}>
+      <Link to="/edit" className={styles.link}>
+        <BackIcon className={styles.back} />
+      </Link>
       <select
         value={currentQuestion}
         onChange={changeQuestion}
