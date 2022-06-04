@@ -14,6 +14,7 @@ interface Props {
   changeTitle: (newTitle: string, id: string) => void;
   changeText: (newText: string, index: number) => void;
   toggleCorrect: (index: number) => void;
+  unsavedChanges: boolean;
 }
 
 const EditQuestion: React.FC<Props> = ({
@@ -26,6 +27,7 @@ const EditQuestion: React.FC<Props> = ({
   changeTitle,
   changeText,
   toggleCorrect,
+  unsavedChanges,
 }) => (
   <div className={styles.container}>
     <EditHeader
@@ -47,6 +49,9 @@ const EditQuestion: React.FC<Props> = ({
       changeText={changeText}
       toggleCorrect={toggleCorrect}
     />
+    <p className={styles.changes}>
+      {unsavedChanges ? "Unsaved Changes" : "Saved"}
+    </p>
   </div>
 );
 

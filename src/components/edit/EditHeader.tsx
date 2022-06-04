@@ -36,9 +36,7 @@ const EditHeader: React.FC<Props> = ({
           </option>
         ))}
       </select>
-      <button onClick={addQuestion} className={styles.add}>
-        <AddIcon />
-      </button>
+      <AddIcon onClick={addQuestion} className={styles.add} />
     </div>
     <h1 className={styles.name}>{name}</h1>
     <div className={styles.buttonsContainer}>

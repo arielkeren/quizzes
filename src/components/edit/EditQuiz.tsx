@@ -72,6 +72,7 @@ const EditQuiz: React.FC = () => {
       const newQuizzes = [...quizzes];
       newQuizzes[quizIndex] = quiz;
       localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
+      setQuizzes(newQuizzes);
     }
   };
 
@@ -97,16 +98,16 @@ const EditQuiz: React.FC = () => {
 
   const changeTitle = (newTitle: string, id: string) => {
     if (quiz === undefined) return;
-    const newQuiz: QuizInterface = JSON.parse(JSON.stringify(quiz));
-    const targetQuestion = quiz.questions.find(
+    const questionIndex = quiz.questions.findIndex(
       (question) => question.id === id
     );
-    const targetQuestionIndex = quiz.questions.findIndex(
-      (question) => question.id === id
-    );
-    if (targetQuestion !== undefined && targetQuestionIndex !== -1) {
-      targetQuestion.title = newTitle;
-      newQuiz.questions[targetQuestionIndex] = targetQuestion;
+    if (questionIndex !== -1) {
+      const newQuiz: QuizInterface = JSON.parse(JSON.stringify(quiz));
+      const newQuestion = JSON.parse(
+        JSON.stringify(quiz.questions[questionIndex])
+      );
+      newQuestion.title = newTitle;
+      newQuiz.questions[questionIndex] = newQuestion;
       setQuiz(newQuiz);
     }
   };
@@ -125,6 +126,7 @@ const EditQuiz: React.FC = () => {
   };
 
   const deleteQuestion = () => {
+    if (quizzes === null) return;
     if (window.confirm("Delete question?")) {
       const newQuiz: QuizInterface = JSON.parse(JSON.stringify(quiz));
       newQuiz.questions.splice(currentQuestion - 1, 1);
@@ -134,6 +136,9 @@ const EditQuiz: React.FC = () => {
           ? prevCurrentQuestion
           : prevCurrentQuestion - 1
       );
+      const newQuizzes = [...quizzes];
+      newQuizzes[quizIndex] = newQuiz;
+      localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
     }
   };
 
@@ -156,6 +161,9 @@ const EditQuiz: React.FC = () => {
           changeTitle={changeTitle}
           changeText={changeText}
           toggleCorrect={toggleCorrect}
+          unsavedChanges={
+            JSON.stringify(quiz) !== JSON.stringify(quizzes[quizIndex])
+          }
         />
       )}
     </>
