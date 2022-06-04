@@ -7,18 +7,25 @@
   background-color: orange;
 }
 
-.header {
+.headerContainer {
+  width: 100%;
   position: absolute;
   top: 0;
-  right: 50%;
-  transform: translateX(50%);
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
   font-size: 50px;
   color: #8f600b;
+  text-align: center;
 }
 
 .text {
   font-size: 45px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .field {
@@ -33,4 +40,10 @@
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .field {
+    width: 90%;
+  }
 }

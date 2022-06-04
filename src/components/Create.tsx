@@ -40,8 +40,10 @@ const Create: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Create Your Own Quiz</h1>
-      <h2 className={styles.text}>Your quiz's name</h2>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.header}>Create Your Own Quiz</h1>
+      </div>
+      <h2 className={styles.text}>Your Quiz's Name</h2>
       <input
         type="text"
         value={name}
