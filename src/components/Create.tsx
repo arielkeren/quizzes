@@ -20,20 +20,22 @@ const Create: React.FC = () => {
 
   const create = () => {
     if (name.replace(/ /g, "") === "") {
-      alert("Cannot create a quiz without a name.");
+      alert("There must be characters in the quiz's name.");
       setName("");
-      return;
+    } else if (name.length > 20)
+      alert("The quiz's name must be at most 20 characters.");
+    else {
+      const newId = uuidv4();
+      localStorage.setItem(
+        "quizzes",
+        JSON.stringify([{ name, questions: [], id: newId }, ...(quizzes ?? [])])
+      );
+      setQuizzes((prevQuizzes) => [
+        { name, questions: [], id: newId },
+        ...(prevQuizzes ?? []),
+      ]);
+      navigate(`/edit/${newId}`);
     }
-    const newId = uuidv4();
-    localStorage.setItem(
-      "quizzes",
-      JSON.stringify([{ name, questions: [], id: newId }, ...(quizzes ?? [])])
-    );
-    setQuizzes((prevQuizzes) => [
-      { name, questions: [], id: newId },
-      ...(prevQuizzes ?? []),
-    ]);
-    navigate(`/edit/${newId}`);
   };
 
   return (

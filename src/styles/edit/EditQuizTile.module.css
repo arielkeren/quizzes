@@ -9,19 +9,35 @@
   padding: 30px;
 }
 
-.close {
+.actionsContainer {
   position: absolute;
   top: 5px;
   right: 5px;
-  color: green;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete {
   font-size: 45px;
+  color: green;
   cursor: pointer;
+}
+
+.rename {
+  font-size: 35px;
+  color: green;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 .name {
   color: white;
   border-bottom: 2px solid green;
   font-size: 50px;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .questions {

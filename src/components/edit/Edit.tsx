@@ -22,6 +22,22 @@ const Edit: React.FC = () => {
     setQuizzes(newQuizzes);
   };
 
+  const renameQuiz = (id: string) => {
+    if (quizzes === null) return;
+    const quizIndex = quizzes.findIndex((quiz) => quiz.id === id);
+    const newQuizzes = [...quizzes];
+    const newName = prompt("Enter the new name:");
+    if (newName !== null) {
+      if (newName.replace(/ /g, "") === "")
+        alert("There must be characters in the quiz's name.");
+      else if (newName.length > 20)
+        alert("The quiz's name must be at most 20 characters.");
+      else newQuizzes[quizIndex].name = newName;
+    }
+    localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
+    setQuizzes(newQuizzes);
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Edit Your Quizzes</h1>
@@ -30,7 +46,11 @@ const Edit: React.FC = () => {
       ) : quizzes.length === 0 ? (
         <EditNoQuizzes />
       ) : (
-        <EditQuizTileList quizzes={quizzes} deleteQuiz={deleteQuiz} />
+        <EditQuizTileList
+          quizzes={quizzes}
+          deleteQuiz={deleteQuiz}
+          renameQuiz={renameQuiz}
+        />
       )}
     </div>
   );

@@ -5,9 +5,14 @@ import EditQuizTile from "./EditQuizTile";
 interface Props {
   quizzes: QuizInterface[];
   deleteQuiz: (id: string) => void;
+  renameQuiz: (id: string) => void;
 }
 
-const EditQuizTileList: React.FC<Props> = ({ quizzes, deleteQuiz }) => (
+const EditQuizTileList: React.FC<Props> = ({
+  quizzes,
+  deleteQuiz,
+  renameQuiz,
+}) => (
   <div className={styles.container}>
     {quizzes.map((quiz) => (
       <EditQuizTile
@@ -15,6 +20,7 @@ const EditQuizTileList: React.FC<Props> = ({ quizzes, deleteQuiz }) => (
         numberOfQuestions={quiz.questions.length}
         id={quiz.id}
         deleteQuiz={deleteQuiz}
+        renameQuiz={renameQuiz}
         key={quiz.id}
       />
     ))}

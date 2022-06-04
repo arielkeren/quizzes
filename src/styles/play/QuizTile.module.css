@@ -12,6 +12,10 @@
   color: white;
   border-bottom: 2px solid royalblue;
   font-size: 50px;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .questions {
