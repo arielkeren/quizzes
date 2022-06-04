@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/HomeSection.module.css";
+import styles from "../../styles/home/HomeSection.module.css";
 
 interface Props {
   section: string;

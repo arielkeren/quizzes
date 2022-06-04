@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/home/Home.module.css";
 import HomeSection from "./HomeSection";
 
 const Home: React.FC = () => (
