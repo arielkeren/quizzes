@@ -13,9 +13,13 @@
   border-bottom: 2px solid royalblue;
   font-size: 50px;
   max-width: 400px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-align: center;
 }
 
 .questions {
@@ -34,4 +38,30 @@
   border-radius: 2px;
   width: 75%;
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 300px;
+  }
+
+  .name {
+    max-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 200px;
+  }
+
+  .name {
+    max-width: 200px;
+  }
 }
