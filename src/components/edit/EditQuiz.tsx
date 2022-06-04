@@ -26,32 +26,23 @@ const EditQuiz: React.FC = () => {
         (quiz: QuizInterface) => quiz.id === id
       )
     );
-  }, []);
+  }, [id]);
 
   const save = () => {
     if (quiz === undefined || quizzes === null) return;
     if (
       quiz.questions.some((question) => question.title.replace(/ /g, "") === "")
-    ) {
+    )
       alert("Every question must have a title.");
-      return;
-    }
-    if (
+    else if (
       quiz.questions.some((question) => {
         const { answers } = question;
-        const [answer1, answer2, answer3, answer4] = answers;
-        let { text: a1 } = answer1;
-        let { text: a2 } = answer2;
-        let { text: a3 } = answer3;
-        let { text: a4 } = answer4;
-        a1 = a1.replace(/ /g, "");
-        a2 = a2.replace(/ /g, "");
-        a3 = a3.replace(/ /g, "");
-        a4 = a4.replace(/ /g, "");
-        const t1 = a1 === "";
-        const t2 = a2 === "";
-        const t3 = a3 === "";
-        const t4 = a4 === "";
+        const [{ text: a1 }, { text: a2 }, { text: a3 }, { text: a4 }] =
+          answers;
+        const t1 = a1.replace(/ /g, "") === "";
+        const t2 = a2.replace(/ /g, "") === "";
+        const t3 = a3.replace(/ /g, "") === "";
+        const t4 = a4.replace(/ /g, "") === "";
         return (
           (t1 && t2 && t3) ||
           (t1 && t2 && t4) ||
@@ -59,23 +50,29 @@ const EditQuiz: React.FC = () => {
           (t2 && t3 && t4)
         );
       })
-    ) {
+    )
       alert("Every question must have at least two answers.");
-      return;
-    }
-    if (
+    else if (
       !quiz.questions.every((question) =>
         question.answers
           .filter((answer) => answer.text !== "")
           .some((answer) => answer.correct)
       )
-    ) {
+    )
       alert("Every question must have at least one correct answer.");
-      return;
+    else if (quiz.questions.some((question) => question.title.length > 100))
+      alert("Every title must be at most 100 characters.");
+    else if (
+      quiz.questions.some((question) =>
+        question.answers.some((answer) => answer.text.length > 30)
+      )
+    )
+      alert("Every answer must be at most 30 characters");
+    else {
+      const newQuizzes = [...quizzes];
+      newQuizzes[quizIndex] = quiz;
+      localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
     }
-    const newQuizzes = [...quizzes];
-    newQuizzes[quizIndex] = quiz;
-    localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
   };
 
   const addQuestion = () => {

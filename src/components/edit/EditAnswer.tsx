@@ -35,6 +35,7 @@ const EditAnswer: React.FC<Props> = ({
         onChange={changeThisText}
         onClick={preventClick}
         placeholder={`Answer ${index + 1}`}
+        maxLength={30}
         className={styles.text}
       />
       {correct ? (

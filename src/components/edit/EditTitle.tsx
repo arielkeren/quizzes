@@ -17,6 +17,7 @@ const EditTitle: React.FC<Props> = ({ title, id, changeTitle }) => {
       value={title}
       onChange={changeThisQuestionTitle}
       placeholder="Title"
+      maxLength={100}
       className={styles.title}
     />
   );
