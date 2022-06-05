@@ -15,7 +15,9 @@ const Play: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Play Your Quizzes</h1>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.header}>Play Your Quizzes</h1>
+      </div>
       {quizzes === null ? (
         <PlayLoading />
       ) : quizzes.length === 0 ? (

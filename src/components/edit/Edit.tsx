@@ -40,7 +40,9 @@ const Edit: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Edit Your Quizzes</h1>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.header}>Edit Your Quizzes</h1>
+      </div>
       {quizzes === null ? (
         <EditLoading />
       ) : quizzes.length === 0 ? (
