@@ -6,6 +6,11 @@
   padding: 100px 0 100px 0;
   text-decoration: none;
   margin-bottom: 30px;
+  transition: background-color 250ms, transform 300ms;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .title {
@@ -21,14 +26,41 @@
 .play {
   background-color: #557ffe;
   color: #0707c4;
+  animation: appear 500ms;
+}
+
+.play:hover {
+  background-color: #7c9dff;
 }
 
 .create {
   background-color: orange;
   color: #8f600b;
+  animation: appear 750ms;
+}
+
+.create:hover {
+  background-color: #ffcd70;
 }
 
 .edit {
   background-color: green;
   color: #015101;
+  animation: appear 1s;
+}
+
+.edit:hover {
+  background-color: #019f01;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
