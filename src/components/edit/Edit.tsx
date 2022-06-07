@@ -15,11 +15,13 @@ const Edit: React.FC = () => {
 
   const deleteQuiz = (id: string) => {
     if (quizzes === null) return;
-    const quizIndex = quizzes.findIndex((quiz) => quiz.id === id);
-    const newQuizzes = [...quizzes];
-    newQuizzes.splice(quizIndex, 1);
-    localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
-    setQuizzes(newQuizzes);
+    if (window.confirm("Are you sure you want to delete this quiz?")) {
+      const quizIndex = quizzes.findIndex((quiz) => quiz.id === id);
+      const newQuizzes = [...quizzes];
+      newQuizzes.splice(quizIndex, 1);
+      localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
+      setQuizzes(newQuizzes);
+    }
   };
 
   const renameQuiz = (id: string) => {
