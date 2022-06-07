@@ -20,10 +20,9 @@ const Create: React.FC = () => {
 
   const create = () => {
     if (name.replace(/ /g, "") === "") {
-      alert("There must be characters in the quiz's name.");
+      alert("Name must contain characters.");
       setName("");
-    } else if (name.length > 20)
-      alert("The quiz's name must be at most 20 characters.");
+    } else if (name.length > 20) alert("Name must be at most 20 characters.");
     else {
       const newId = uuidv4();
       localStorage.setItem(

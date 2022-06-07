@@ -31,9 +31,9 @@ const Edit: React.FC = () => {
     const newName = prompt("Enter the new name:");
     if (newName !== null) {
       if (newName.replace(/ /g, "") === "")
-        alert("There must be characters in the quiz's name.");
+        alert("Name must contain characters.");
       else if (newName.length > 20)
-        alert("The quiz's name must be at most 20 characters.");
+        alert("Name must be at most 20 characters.");
       else newQuizzes[quizIndex].name = newName;
     }
     localStorage.setItem("quizzes", JSON.stringify(newQuizzes));
