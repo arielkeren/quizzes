@@ -25,7 +25,7 @@ const Quiz: React.FC = () => {
           (quiz: QuizInterface) => quiz.id === id
         )
       ),
-    []
+    [id]
   );
 
   const nextQuestion = () => {
